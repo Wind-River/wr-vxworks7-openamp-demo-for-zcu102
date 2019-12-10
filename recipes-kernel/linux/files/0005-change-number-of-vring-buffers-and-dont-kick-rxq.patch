@@ -1,0 +1,28 @@
+diff --git a/drivers/rpmsg/virtio_rpmsg_bus.c b/drivers/rpmsg/virtio_rpmsg_bus.c
+index 664f957012cd..ecd19bcd23bb 100644
+--- a/drivers/rpmsg/virtio_rpmsg_bus.c
++++ b/drivers/rpmsg/virtio_rpmsg_bus.c
+@@ -151,7 +151,11 @@ struct virtio_rpmsg_channel {
+  * can change this without changing anything in the firmware of the remote
+  * processor.
+  */
++#if 0
+ #define MAX_RPMSG_NUM_BUFS	(512)
++#else
++#define MAX_RPMSG_NUM_BUFS	(192)
++#endif
+ #define MAX_RPMSG_BUF_SIZE	(512)
+ 
+ /*
+@@ -789,9 +793,11 @@ static void rpmsg_recv_done(struct virtqueue *rvq)
+ 
+ 	dev_dbg(dev, "Received %u messages\n", msgs_received);
+ 
++#if 0
+ 	/* tell the remote processor we added another available rx buffer */
+ 	if (msgs_received)
+ 		virtqueue_kick(vrp->rvq);
++#endif
+ }
+ 
+ /*

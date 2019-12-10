@@ -1,0 +1,13 @@
+diff --git a/arch/arm64/boot/dts/xilinx/zynqmp.dtsi b/arch/arm64/boot/dts/xilinx/zynqmp.dtsi
+index 54067044af92..c96693d652ce 100644
+--- a/arch/arm64/boot/dts/xilinx/zynqmp.dtsi
++++ b/arch/arm64/boot/dts/xilinx/zynqmp.dtsi
+@@ -1006,7 +1006,7 @@
+ 
+ 		ttc0: timer@ff110000 {
+ 			compatible = "cdns,ttc";
+-			status = "disabled";
++			status = "okay";
+ 			interrupt-parent = <&gic>;
+ 			interrupts = <0 36 4>, <0 37 4>, <0 38 4>;
+ 			reg = <0x0 0xff110000 0x0 0x1000>;
